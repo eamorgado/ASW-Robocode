@@ -77,7 +77,7 @@ void turnRadar() {setTurnRadarRight(360);}
 		double absDeg = absoluteBearing(getX(), getY(), future_x, future_y);
 		setTurnGunRight(normalizeBearing(absDeg - getGunHeading()));
 		
-		//if gun is cooled and we can fire in this tick(gun rotates 20บ per turn) then fire
+		//if gun is cooled and we can fire in this tick(gun rotates 20ยบ per turn) then fire
 		if (getGunHeat() == 0 && Math.abs(getGunTurnRemaining()) < 10) 
 			setFire(fire_power);
 		
@@ -99,7 +99,7 @@ void turnRadar() {setTurnRadarRight(360);}
 		return angle;
 	}
 
-	/* computes the absolute bearing between two points
+	/** computes the absolute bearing between two points
 	 * 
 	 * @see http://mark.random-article.com/weber/java/robocode/lesson4.html
 	 */
