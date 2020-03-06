@@ -1,61 +1,45 @@
 package em;
+
 import robocode.ScannedRobotEvent;
 
 /**
+ * @see http://mark.random-article.com/robocode/improved_scanning.html
  * @see http://mark.random-article.com/robocode/enemy_bot.html
  */
 public class EnemyBot {
-	double bearing;
-	double distance;
-	double energy;
-	double heading;
-	double velocity;
+	double bearing, distance, energy, heading, velocity;
 	String name;
 	
-	public double getBearing(){
-		return bearing;		
-	}
-	public double getDistance(){
-		return distance;
-	}
-	public double getEnergy(){
-		return energy;
-	}
-	public double getHeading(){
-		return heading;
-	}
-	public double getVelocity(){
-		return velocity;
-	}
-	public String getName(){
-		return name;
-	}
+	//Constructor
+	public EnemyBot(){reset();}
+	
+	public double getBearing()	{return this.bearing;}
+	public double getDistance()	{return this.distance;}
+	public double getEnergy()	{return this.energy;}
+	public double getHeading()	{return this.heading;}
+	public double getVelocity()	{return this.velocity;}
+	public String getName()		{return this.name;}
+	
+	//Update Enemy to new bot
 	public void update(ScannedRobotEvent bot){
-		bearing = bot.getBearing();
-		distance = bot.getDistance();
-		energy = bot.getEnergy();
-		heading = bot.getHeading();
-		velocity = bot.getVelocity();
-		name = bot.getName();
+		this.bearing = bot.getBearing();
+		this.distance = bot.getDistance();
+		this.energy = bot.getEnergy();
+		this.heading = bot.getHeading();
+		this.velocity = bot.getVelocity();
+		this.name = bot.getName();
 	}
+	
+	//Reset all values
 	public void reset(){
-		bearing = 0.0;
-		distance =0.0;
-		energy= 0.0;
-		heading =0.0;
-		velocity = 0.0;
-		name = null;
+		this.bearing = this.distance = this.energy = this.heading = this.velocity = 0.0;
+		this.name = null;
 	}
 	
-	public Boolean none(){
-		if (name == null || name == "")
-			return true;
-		else
-			return false;
-	}
-	
-	public EnemyBot(){
-		reset();
-	}
-
+	/**
+	 * Checks if enemy if non existent
+	 * @param void
+	 * @return boolean - true if enemy does not exist
+	 */
+	public Boolean none(){return (name == null || name == "");}
 }

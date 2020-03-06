@@ -1,35 +1,33 @@
 package em;
+
 import robocode.Robot;
 import robocode.ScannedRobotEvent;
+
+/**
+ * @see http://mark.random-article.com/robocode/improved_targeting.html
+ * @see http://mark.random-article.com/robocode/adv_enemy_bot.html
+ */
 
 public class AdvancedEnemyBot extends EnemyBot{
 	private double x, y;
 	
-	public double getX(){
-		return x;
-	}
+	public AdvancedEnemyBot(){reset();}
 	
-	public double getY(){
-		return y;
-	}
-	
+	public double getX(){return x;}
+	public double getY(){return y;}
 	public void reset(){
 		super.reset();
-		x = 0;
-		y = 0;
-	}
-	
-	public AdvancedEnemyBot(){
-		reset();
+		x = y = 0;
 	}
 	
 	public void update(ScannedRobotEvent e, Robot robot){
 		super.update(e);
-		double absBearingDeg= (robot.getHeading() + e.getBearing());
-		if (absBearingDeg <0) absBearingDeg +=360;
+		double abs_bearing_deg= (robot.getHeading() + e.getBearing());
+		if (abs_bearing_deg <0) abs_bearing_deg += 360;
 		
-		x = robot.getX() + Math.sin(Math.toRadians(absBearingDeg)) * e.getDistance();
-		y = robot.getY() + Math.cos(Math.toRadians(absBearingDeg)) * e.getDistance();
+		double val =  Math.sin(Math.toRadians(abs_bearing_deg)) * e.getDistance();
+		x = robot.getX() + val;
+		y = robot.getY() + val;
 		
 	}
 	
