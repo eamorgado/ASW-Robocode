@@ -12,7 +12,6 @@ public class EnemyBot {
 	
 	//Constructor
 	public EnemyBot(){reset();}
-	
 	public double getBearing()	{return this.bearing;}
 	public double getDistance()	{return this.distance;}
 	public double getEnergy()	{return this.energy;}
