@@ -45,7 +45,7 @@ public class Primus extends AdvancedRobot implements BotInterface{
 	public void turnRadar() {setTurnRadarRight(360);}
 	public void makeMove() {
 		// always square off our enemy, turning slightly toward him
-		setTurnRight(normalizeBearing(enemy.getBearing()+ 90 - (15 * move_dir)));
+		setTurnRight(normalizeBearing(enemy.getBearing() + 90));
 
 		// if we're close to the wall, eventually, we'll move away
 		if (too_close > 0) too_close--; //decrease danger
@@ -151,5 +151,3 @@ public class Primus extends AdvancedRobot implements BotInterface{
 		while (true) ordersCycle();
 	}
 }
-
-

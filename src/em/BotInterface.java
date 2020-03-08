@@ -8,8 +8,9 @@ import robocode.ScannedRobotEvent;
 
 
 /**
- * This robot is implemented by following Mark Whitley's class on the subject (IT 218 - Robocode Project):
+ * This robot is implemented by following Mark Whitley's classes on the subject of robocode:
  * 		@see http://mark.random-article.com/robocode/
+ * 		@see http://mark.random-article.com/weber/java/robocode/lesson5.html
  * 
  * For Targeting:
  * 		@see http://mark.random-article.com/robocode/basic_targeting.html
@@ -72,6 +73,7 @@ public interface BotInterface {
 	/**
 	 * This method handles a scanned event => radar found other bot
 	 * @see http://mark.random-article.com/weber/java/robocode/lesson4.html
+	 * @see http://robowiki.net/wiki/General_Targeting_Discussion
 	 */
 	public void onScannedRobot(ScannedRobotEvent e);
 	public void onRobotDeath(RobotDeathEvent e);
@@ -87,9 +89,8 @@ public interface BotInterface {
 	
 	/**
 	 * Event handler for collision with enemy bot => move away
-	 * @parm e - the collision event
+	 * @param e - the collision event
 	 */
 	public void onHitRobot(HitRobotEvent e);
 	public void run();
 }
-
